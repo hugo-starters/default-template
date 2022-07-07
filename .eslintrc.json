@@ -1,12 +1,20 @@
 {
+  // prevents eslint from looking higher for a config
+  "root": true,
   "env": {
     "browser": true,
     "es2021": true
   },
-  "extends": ["airbnb-base"],
+  "extends": ["airbnb-base", "prettier"],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "ignorePatterns": [
+    "**/*.{css,scss,sass}",
+    "/public/**",
+    "/resources/**",
+    "node_modules"
+  ],
   "rules": {}
 }

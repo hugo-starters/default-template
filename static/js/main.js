@@ -1,1 +1,1 @@
-var a = "apple"
+// empty
