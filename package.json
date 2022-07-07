@@ -11,9 +11,12 @@
     "renderToDisk:production": "npm run renderToDisk -- --minify --environment production",
     "npm-check": "npx npm-check -u",
     "hugo version": "hugo version",
-    "fix": "",
-    "fix:prettier": "prettier --check .",
-    "format": "prettier --write ."
+    "check": "",
+    "check:prettier": "prettier --check .",
+    "lint:stylelint": "stylelint \"**/*.{css,sass,scss}\"",
+    "lint:prettier": "prettier --write .",
+    "lint:eslint": "eslint --fix",
+    "lint": "npm run lint:stylelint && npm run lint:prettier && npm run lint:eslint"
   },
   "husky": {
     "hooks": {
@@ -42,6 +45,8 @@
     "husky": "^8.0.0",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "prettier-plugin-go-template": "^0.0.13"
+    "prettier-plugin-go-template": "^0.0.13",
+    "stylelint": "^14.9.1",
+    "stylelint-config-recommended-scss": "^6.0.0"
   }
 }
