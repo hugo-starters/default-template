@@ -14,7 +14,8 @@
     "lint:stylelint": "stylelint --fix \"**/*.{css,sass,scss}\" ",
     "lint:prettier": "prettier --write .",
     "lint:eslint": "eslint --fix .",
-    "lint": "npm run lint:stylelint && npm run lint:prettier && npm run lint:eslint"
+    "lint:markdown": "markdownlint-cli2-fix \"*.md\" \"content/**/*.md\"",
+    "lint": "npm run lint:stylelint && npm run lint:prettier && npm run lint:eslint && npm run lint:markdown"
   },
   "husky": {
     "hooks": {
@@ -41,6 +42,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
+    "markdownlint-cli2": "^0.4.0",
     "prettier": "^2.7.1",
     "prettier-plugin-go-template": "^0.0.13",
     "stylelint": "^14.9.1",

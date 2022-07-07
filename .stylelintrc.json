@@ -1,11 +1,4 @@
 {
-  "extends": [
-    "stylelint-config-recommended",
-    "stylelint-config-prettier"
-  ],
-  "ignoreFiles": [
-    "/public/**",
-    "/resources/**",
-    "node_modules"
-  ]
+  "extends": ["stylelint-config-recommended", "stylelint-config-prettier"],
+  "ignoreFiles": ["/public/**", "/resources/**", "node_modules"]
 }
