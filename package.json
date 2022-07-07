@@ -10,7 +10,15 @@
     "renderToDisk:preview": "npm run renderToDisk -- --buildDrafts --buildFuture ",
     "renderToDisk:production": "npm run renderToDisk -- --minify --environment production",
     "npm-check": "npx npm-check -u",
-    "hugo version": "hugo version"
+    "hugo version": "hugo version",
+    "fix": "",
+    "fix:prettier": "prettier --check .",
+    "format": "prettier --write ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format && git add -A"
+    }
   },
   "repository": {
     "type": "git",
@@ -21,5 +29,13 @@
   "bugs": {
     "url": "https://github.com/hugo-starters/default-template/issues"
   },
-  "homepage": "https://github.com/hugo-starters/default-template#readme"
+  "homepage": "https://github.com/hugo-starters/default-template#readme",
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "husky": "^8.0.0",
+    "prettier": "^2.7.1",
+    "prettier-plugin-go-template": "^0.0.13"
+  }
 }

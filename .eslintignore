@@ -1,0 +1,4 @@
+# ignore hugo built files
+# node_modules and . folders are ignored by default
+/public/**
+/resources/**

@@ -1,0 +1,6 @@
+# node modules are ignored for default
+# ignore js files, so eslint can format, with the configured rule set
+**/*.js
+# ignore hugo built files
+/public/**
+/resources/**
