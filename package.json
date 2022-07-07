@@ -17,8 +17,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format && git add -A"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*": [
+      "npm run format"
+    ]
   },
   "repository": {
     "type": "git",
@@ -35,6 +40,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
     "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "prettier-plugin-go-template": "^0.0.13"
   }
