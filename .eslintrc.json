@@ -11,7 +11,7 @@
     "sourceType": "module"
   },
   "ignorePatterns": [
-    "**/*.{css,scss,sass}",
+    "**/*.{css}",
     "/public/**",
     "/resources/**",
     "node_modules"
