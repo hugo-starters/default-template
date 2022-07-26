@@ -1,4 +1,5 @@
 # the following file conifgures both the editor, and prettier
+# if using VS Code, you need the editorconfig plugin to inherit these settings
 # Stop the editor from looking for .editorconfig files in the parent directories
 root = true
 [*]
