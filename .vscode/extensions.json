@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "davidanson.vscode-markdownlint",
+    "stylelint.vscode-stylelint",
+    "editorconfig.editorconfig"
+
+    // "mikestead.dotenv",
+    // "csstools.postcss",
+  ]
+}

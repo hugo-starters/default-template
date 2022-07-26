@@ -1,0 +1,20 @@
+{
+  // "editor.detectIndentation": false,
+  "search.exclude": {
+    "package-lock.json": true
+  },
+  // use prettier as formatter
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": [
+    "source.addMissingImports",
+    "source.fixAll.eslint"
+  ],
+  // inser final new line
+  "files.insertFinalNewline": true,
+  // trim trailing whitespace on save
+  "files.trimTrailingWhitespace": true,
+  // turn off detect indentation so the subsequent setting is always used
+  "editor.detectIndentation": false,
+  // tab width 2 to match prettier default
+  "editor.tabSize": 2
+}

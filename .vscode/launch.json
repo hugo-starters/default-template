@@ -1,0 +1,25 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  // You must run the RenderToDisk command so that the files are being served from /public
+  // If you use edge, click inspect on the debug toolbar, install the vscode plugin
+  // and you can inspect via vscode
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "msedge",
+      "request": "launch",
+      "name": "Hugo: Edge integrated",
+      "url": "http://localhost:1313",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Hugo: Chrome",
+      "url": "http://localhost:1313",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}
