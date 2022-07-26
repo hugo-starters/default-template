@@ -11,21 +11,11 @@
     "renderToDisk:production": "npm run renderToDisk -- --minify --environment production",
     "npm-check": "npx npm-check -u",
     "hugo version": "hugo version",
-    "lint:stylelint": "stylelint --fix \"**/*.{css,sass,scss}\" ",
+    "lint:stylelint": "stylelint --fix \"**/*.{css}\" ",
     "lint:prettier": "prettier --write .",
     "lint:eslint": "eslint --fix .",
     "lint:markdown": "markdownlint-cli2-fix \"*.md\" \"content/**/*.md\"",
     "lint": "npm run lint:stylelint && npm run lint:prettier && npm run lint:eslint && npm run lint:markdown"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*": [
-      "npm run format"
-    ]
   },
   "repository": {
     "type": "git",
