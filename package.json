@@ -38,5 +38,11 @@
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended": "^8.0.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.7",
+    "bootstrap": "^5.2.0",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^10.0.0"
   }
 }

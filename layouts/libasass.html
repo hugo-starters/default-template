@@ -1,0 +1,58 @@
+{{- /* ESBUILD.HTML - Build javascript modules with esbuild
+  * Simple Usage: {{ partial "libsass" "scss/main.css" }}
+  * Simple Usage: {{ partial "libsass" (dict "src" "scss/main.css" "targetDir" "css" "targetPath" "css/main.css" ) }}
+  * Parameters:
+  * src - javascript file to build, relative to assets folder. Must include file extension can be .js or .ts
+  * targetDir - specify the directory to output the sass file into e.g. assets/scss/main.scss --> css/main.css (set to "css")
+  * targetPath - specify the entire path to output file ( e.g. "css/main.css")
+  *
+  * compiled css is run through postcss and autoprefixer and compressed.
+  * a .browserslist or compadible package.json config is needed for autoprefixer
+  * see https://github.com/postcss/autoprefixer#browsers
+  *
+*/ -}}
+{{- /* declare variables */ -}}
+{{- $targetDir := "css" -}}
+{{- $targetPath := "" -}}
+{{- $file := "" -}}
+{{- /* assign variables from dict if present */ -}}
+{{- if reflect.IsMap . -}}
+  {{- with .targetDir }}
+    {{- $targetDir = . -}}
+  {{- end -}}
+  {{- with .targetPath -}}
+    {{- $targetPath = . -}}
+  {{- end -}}
+  {{- $file = .src -}}
+{{- else -}}
+  {{- /* if dict not present, assign context to $file */ -}}
+  {{- $file = . }}
+{{- end -}}
+{{- /* if .targetPath is not specified, create one with the pattern "css/[file-name].css" */ -}}
+{{- if not $targetPath -}}
+  {{- /* remove first directory from file path if present */ -}}
+  {{- $fileCSS := $file }}
+  {{- if findRE "(.*)/" $fileCSS -}}
+    {{- $fileCSS = replaceRE "(.*)/" "" $fileCSS -}}
+    {{- /* replace .scss or .sass with .css if present */ -}}
+    {{- if strings.HasSuffix $fileCSS (or "scss" "sass") -}}
+      {{ $fileCSS = substr $fileCSS 0 -4 -}}
+      {{ $fileCSS = printf "%s.css" $fileCSS -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $targetPath = printf "%s/%s" $targetDir $fileCSS -}}
+{{- end -}}
+{{- /* parse CSS into libsass compiler
+  ************************************  */ -}}
+{{- with $src := resources.Get $file -}}
+  {{- /* postcss is run in all environments. Plugins can be run conditionally based on the ENV */ -}}
+  {{- $postOpts := (dict "config" "config/postcss.config.js") -}}
+  {{ if eq (hugo.Environment) "development" -}}
+    {{- $opts := (dict "targetPath" $targetPath "transpiler" "libsass" "enableSourceMap" true "includePaths" (slice "node_modules")) -}}
+    {{- $src = $src | toCSS $opts | postCSS $postOpts | resources.Fingerprint -}}
+  {{ else -}}
+    {{ $opts := (dict "targetPath" $targetPath "transpiler" "libsass" "outputStyle" "compressed" "includePaths" (slice "node_modules")) -}}
+    {{ $src = $src | toCSS $opts | postCSS $postOpts | resources.Fingerprint -}}
+  {{ end -}}
+  <link rel="stylesheet" href="{{ $src.Permalink | relURL }}" integrity="{{ $src.Data.Integrity }}" crossorigin="anonymous">
+{{- end -}}
