@@ -1,5 +1,5 @@
 {
-  "name": "default-template",
+  "name": "bootstrap-postcss",
   "version": "1.0.0",
   "description": "Default hugo starter template",
   "scripts": {
